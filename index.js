@@ -17,6 +17,9 @@ app.set('view engine', 'ejs')
 
 
 // 设置静态文件目录
+app.use(express.static(path.join(__dirname, 'public')))
+
+// session 中间件
 app.use(session({
   name: config.session.key, // 设置cookie 中保存session id 的字段名称
   secret: config.session.secret, // 通过设置secret 来计算hash 值并放在cookie 中，使产生的signedCookie 防篡改
@@ -32,6 +35,12 @@ app.use(session({
 
 // flash 中间件，用来显示通知
 app.use(flash())
+
+// 处理表单及文件上传的中间件
+app.use(require('express-formidable')({
+  uploadDir: path.join(__dirname, 'public/img'), // 上传文件目录
+  keepExtensions: true // 保留后缀
+}))
 
 // 设置模块全局常量
 app.locals.blog = {
