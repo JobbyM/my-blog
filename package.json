@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha",
-    "start": "cross-env NODE_ENV=production pm2 start index.js --node-args='--harmony' --name 'my-blog'"
+    "start": "cross-env NODE_ENV=production pm2 start index.js --node-args='--harmony' --name 'my-blog'",
+    "heroku": "NODE_ENV=production node index"
   },
   "author": "JobbyM",
   "license": "ISC",
