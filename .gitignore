@@ -58,5 +58,5 @@ typings/
 .env
 
 # Config
-config/*
-!config/default.*
+# config/*
+# !config/default.*
