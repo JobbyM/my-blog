@@ -8,7 +8,7 @@ module.exports = function(app){
   app.use('/posts', require('./posts'))
   // 404 page
   app.use(function(req, res){
-    if(!res.headersSet){
+    if(!res.headersSent){
       res.status(404).render('404')
     }
   })
