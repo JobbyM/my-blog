@@ -18,7 +18,7 @@ module.exports = {
   },
 
   // 通过用户id 和留言id 删除一个留言
-  delCommentsById: function delCommentsByPostId(commentId, author){
+  delCommentById: function delCommentById(commentId, author){
     return Comment.remove({ author: author, _id: commentId }).exec()
   },
 
@@ -40,6 +40,6 @@ module.exports = {
 
   // 通过文章id 获取该文章下留言数
   getCommentsCount: function getCommentsCount(postId){
-    return Comment.find({ postId: postId }).exec()
+    return Comment.count({ postId: postId }).exec()
   }
 }
